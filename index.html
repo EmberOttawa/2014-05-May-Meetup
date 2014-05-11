@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Building an app with Ember.js</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/ember.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.force-element-demo:active{
+				color: HotPink;
+			}
+			.force-element-demo:focus{
+				color: red;
+			}
+			.reveal i {
+				font-style: normal;
+			}
+			.reveal .fa-icon,
+			.reveal [class^="fa-"],
+			.reveal [class*=" fa-"]  {
+			  font-family: 'FontAwesome';
+			}
+
+			a .fa{
+				font-size: 0.5em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+<!----- Section ------>
+				<section>
+					<section data-track="welcome">
+						<h1>Welcome</h1>
+						<h4>to</h4>
+						<a target="_blank" class="test" href="http://www.meetup.com/Ember-js-Ottawa/">
+							<img class="image" src="img/ember-ottawa.jpeg" >
+						</a>
+					</section>
+					<section data-track="welcome">
+						<h2>Thanks!</h2>
+					</section>
+					<section data-track="welcome">
+						<a target="_blank" class="test" href="http://bv02.com">
+							<img class="image" src="img/bv02-logo.jpeg" >
+						</a>
+						<p>Space by <a target="_blank" href="http://bv02.com">bv02</a></p>
+					</section>
+					<section data-track="welcome">
+						<a target="_blank" class="test" href="http://toushay.com">
+							<img class="image" src="img/toushay-logo.png" >
+						</a>
+						<p>Food & Drinks by <a target="_blank" href="http://toushay.com">Toushay</a></p>
+						<small>Please drink (and eat!) responsibly - don't drink & drive!</small>
+					</section>
+				</section>
+
+
+<!----- Section ------>
+				<section>
+					<section data-track="welcome">
+						<h2>Introductions</h2>
+						<br/>
+						<ul>
+							<li>Your Name</li>
+							<li>What you do</li>
+							<li>Your exprience with Ember</li>
+							<li>What you hope to get out of this meetup</li>
+						</ul>
+					</section>
+					<section data-track="welcome">
+						<a target="_blank" class="test" href="http://www.bv02.com/device-lab">
+							<img class="image" src="img/odl.png" >
+						</a>
+						<p><a target="_blank" href="http://www.bv02.com/device-lab">Open Device Lab</a></p>
+					</section>
+				</section>
+
+<!----- Section ------>
+				<section>
+					<section data-track="title">
+						<h2>Building an app with Ember.js</h2>
+
+						<aside class="notes">
+							<ul>
+								<li></li>
+							</ul>
+						</aside>
+					</section>
+					<section data-track="title">
+						<h3>Brief introduction</h3>
+						<h3>+</h3>
+						<h3>Quick code example</h3>
+					</section>
+				</section>
+
+
+
+<!----- Section ------>
+				<section>
+					<section data-track="my-name">
+						<p>
+							<b>Owain Williams</b>
+						</p>
+					</section>
+					<section data-track="my-job">
+						<a target="_blank" class="test" href="http://toushay.com">
+							<img class="image" src="img/toushay-logo.png" >
+						</a>
+						<p>Front-End Engineer @ <a target="_blank" href="http://toushay.com">Toushay</a></p>
+					</section>
+					<section data-track="my-job">
+						<a target="_blank" class="test" href="http://emberweekly.com">
+							<img class="image" src="img/ember-weekly-logo.png" >
+						</a>
+						<p>Curator @ <a target="_blank" href="http://emberweekly.com">Ember Weekly</a></p>
+					</section>
+				</section>
+
+<!----- Section ------>
+				<section>
+					<section data-track="what-is-ember">
+						<h2>What is Ember?</h2>
+						<aside class="notes">
+
+						</aside>
+					</section>
+					<section>
+						<blockquote>A framework for creating ambitous web applications.</blockquote>
+						<aside class="notes">
+							<ul>
+								<li>Large application</li>
+								<li>Complex applications</li>
+								<li>Interactive applications</li>
+								<li>Team based development</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<ul>
+							<li>Front-end JavaScript MVC Framework</li>
+							<li>Build dynamic + interactive applications</li>
+							<li>Opinionated</li>
+						</ul>
+					</section>
+
+					<section>
+
+						<ul>
+							<li>Manage Complexity</li>
+							<li>Eliminate Boilerplate</li>
+							<li>Application Structure</li>
+							<li>Conventions</li>
+						</ul>
+
+						<aside class="notes">
+							I'll go through some quotes from the Ember team
+						</aside>
+					</section>
+
+				<!-- 	<section>
+						<blockquote>[Developers] need both sophisticated tools and the right vocabulary of concepts to help them communicate and collaborate</blockquote>
+
+						<aside class="notes">
+							SUMMARY: "Need Tools & Concepts To be able to create JS applications"
+						</aside>
+					</section> -->
+
+					<section>
+						<blockquote>[Ember] aims to reduce the complexity created by the links between many moving pieces by clearly defining how communication occurs between parts of your application</blockquote>
+
+						<aside class="notes">
+							SUMMARY: "Defines where the concerns of your application should be"
+						</aside>
+					</section>
+
+
+					<section>
+						<blockquote>By eliminating trivial choices and making the answers conventional, you can focus on non-trivial problems.</blockquote>
+
+						<aside class="notes">
+							SUMMARY: "makes choices for you"
+							<ul>
+								<li>Opinionated</li>
+								<li>Makes you more productive - not wasting time on small decisions</li>
+								<li>using a smaller framework there is a lot of code that has nothing to do with your application</li>
+							</ul>
+						</aside>
+					</section>
+
+
+					<!-- <section>
+						<blockquote>[Developers] don't want to think about building abstractions at the same time as using these abstraction</blockquote>
+
+						<aside class="notes">
+							SUMMARY: "focus on your application"
+							<ul>
+								<li>focus on your application</li>
+								<li>when writing apps, Yehuda/Tom don't want to think about it either</li>
+							</ul>
+						</aside>
+					</section> -->
+
+
+					<section>
+						<h3>Conventions</h3>
+						<ul>
+							<li>Reduce code</li>
+							<li>Eliminate trivial choices</li>
+							<li>Increase Predictability
+								<ul>
+									<li>Important for teams</li>
+									<li>Quick ramp up</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+<!--
+					<section>
+						<blockquote>If something is very difficult to do [in Ember], you're probably doing it wrong.</blockquote>
+						<small style="text-align:right;"><em> - Geoffrey Grosenbach (Peepcode)</em></small>
+						<aside class="notes">
+							Or changing a lot of defaults
+						</aside>
+					</section> -->
+
+				</section>
+
+
+<!----- Section ------>
+
+<!----- Section ------>
+
+				<section>
+					<section>
+						<h2>Important Parts</h2>
+					</section>
+					<section>
+						<h3>URL-Driven</h3>
+						<ul>
+							<li>Router central to every Ember app</li>
+							<li>The Router is the glue that holds your app together</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Templates</h3>
+						<ul>
+							<li>Handlebars.js based templates</li>
+							<li>Bindings aware (aka auto-updating)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Classes & Inheritance</h3>
+						<ul>
+							<li>Extend & Create</li>
+							<li>Mixins</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Conventions</h3>
+						<ul>
+							<li>App structure</li>
+							<li>Naming</li>
+							<li>File locations</li>
+							<li>Auto-generates Objects</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Lifecycle</h3>
+						<img src="img/ember-sketch.png" alt="">
+					</section>
+				</section>
+
+<!----- Section ------>
+
+<!----- Section ------>
+
+<!----- Section ------>
+
+				<section>
+					<section>
+						<img src="img/show-me-code.jpeg" alt="">
+					</section>
+
+					<section>
+						<ul>
+							<li>Using Ember App Kit</li>
+							<li>Grunt-based build system</li>
+							<li>ES6 Modules</li>
+						</ul>
+					</section>
+				</section>
+
+<!----- Section ------>
+
+				<section>
+					<section>
+						<h2>Who's using Ember?</h2>
+					</section>
+					<section>
+						<ul>
+							<li><a href="http://netflix.com">Netflix</a></li>
+							<li><a href="http://yahoo.com">Yahoo</a></li>
+							<li><a href="http://squareup.com">Square</a></li>
+							<li><a href="http://groupon.com">Groupon</a></li>
+							<li><a href="http://discourse.org">Discourse</a></li>
+							<li><a href="http://travis-ci.org">TravisCI</a></li>
+							<li><a href="http://groupon.com">Groupon</a></li>
+							<li><a href="http://zendesk.com">Zendesk</a></li>
+							<li><a href="http://toushay.com">Toushay</a></li>
+						</ul>
+					</section>
+				</section>
+
+<!-- Section -->
+
+				<section>
+					<section>
+						<h1>Thank You</h1>
+						<br/>
+						<small>This mess was thrown together by</small>
+						<p>Owain Williams</p>
+						<small><a target="_blank" href="http://www.twitter.com/owz">@owz</a></small>
+					</section>
+
+					<section data-track="welcome">
+						<h2>Questions?</h2>
+					</section>
+				</section>
+
+
+<!----- Section ------>
+				<section>
+					<section>
+						<h3>Next Steps</h3>
+					</section>
+					<section data-track="my-job">
+						<small>(shameles plug time!)</small><br/>
+						<a target="_blank" class="test" href="http://emberweekly.com">
+							<img class="image" src="img/ember-weekly-logo.png" >
+						</a>
+						<p>Sign up @ <a target="_blank" href="http://emberweekly.com">emberweekly.com</a></p>
+					</section>
+					<section>
+						<ul>
+							<li>Read <a target="_blank" href="http://emberjs.com/guides/">Emberjs.com Guides</a></li>
+							<li>CodeSchool - <a href="https://www.codeschool.com/courses/warming-up-with-emberjs">Warming up with Ember</a> ($)</li>
+							<li>Write some code!</li>
+						</ul>
+					</section>
+				</section>
+
+<!----- Section ------>
+
+				<section>
+					<section>
+						<h3>Next Meetup</h3>
+						<a target="_blank" class="test" href="http://www.meetup.com/Ember-js-Ottawa/">
+							<img class="image" src="img/ember-ottawa.jpeg" >
+						</a>
+						<p>TBC: Wednesday, 4th June @ 6:30pm</p>
+						<p>Follow <a href="http://www.twitter.com/EmberOttawa">@EmberOttawa</a></p>
+					</section>
+					<section>
+						<h3>Call for Speakers</h3>
+						<br/>
+						<ul>
+							<li>Beginner or Advanced topic</li>
+							<li>Project your working on</li>
+							<li>Workshop/hack night</li>
+						</ul>
+					</section>
+					<section>
+						<h3>What would you like to see?</h3>
+					</section>
+				</section>
+
+<!----- Section ------>
+				<section>
+					<section>
+						<h3>Ottawa.js Meetup</h3>
+						<a target="_blank" class="test" href="http://www.meetup.com/Ottawa-JavaScript/">
+							<img class="image" src="img/ottawa-js-logo.jpeg" >
+						</a>
+						<p>Wednesday, May 14 @ 6:30pm</p>
+					</section>
+				</section>
+<!-- Section -->
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
